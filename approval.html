@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Manage Leaves - Manager</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body id="main-body">
+  <div class="dashboard-body dashboard-section" id="dashboard-section">
+    <div class="sidebar">
+      <h2>HRMS</h2>
+      <a href="index.html"><i class="icon">🏠</i> Dash board</a>
+      <a href="applyleave.html"><i class="icon">📝</i> Apply Leave</a>
+       <a href="manageleaves.html" class="active"><i class="icon">🗂️</i> Manage Leaves</a>
+      <!-- <a href="#"><i class="icon">🕒</i> Leave History</a> -->
+      <a href="login.html"><i class="icon">↩️</i> Logout</a>
+    </div>
+
+    <div class="main-content">
+      <h1>Manage Leave Requests</h1>
+      <table class="leave-table">
+        <thead>
+          <tr>
+            <th>Employee</th>
+            <th>Leave Type</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+              <th>Reason</th> 
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="leave-requests-body"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="manager.js"></script>
+</script>
+
+</body>
+</html>

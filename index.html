@@ -1,0 +1,159 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+
+</head>
+<body>
+
+  <div class="dashboard-body" id="dashboard-section">
+    <div class="sidebar">
+      <h2>HRMS</h2>
+      <a href="#" class="active"><i class="icon">🏠</i>Dash board</a>
+      <a href="applyleave.html"><i class="icon">📝</i> Apply Leave</a>
+      <a href="approval.html"><i class="icon">🗂️</i> Manage Leaves</a>
+      <!-- <a href="#"><i class="icon">🕒</i> Leave History</a> -->
+      <a href="login.html"><i class="icon">↩️</i> Logout</a>
+    </div>
+
+    <div class="main-content">
+      <h1>Dashboard</h1>
+
+      <div class="tabs">
+        <div class="tab active" data-tab="employee">Employee</div>
+        <div class="tab" data-tab="manager">Manager</div>
+      </div>
+
+      <div id="employee" class="tab-content active">
+        <h2>Your Leave Requests (History)</h2>
+        <table id="employee-leave-table" border="1" cellpadding="8">
+          <thead>
+            <tr>
+              <th>Leave Type</th>
+              <th>From</th>
+              <th>To</th>
+              <th>Reason</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Filled dynamically -->
+          </tbody>
+        </table>
+      </div>
+
+      <div id="manager" class="tab-content">
+        <div class="stats">
+          <div class="card green-light"><p>Total Leaves</p><h2>12</h2></div>
+          <div class="card green"><p>Pending Leaves</p><h2>2</h2></div>
+          <div class="card green-dark"><p>Approved Leaves</p><h2>8</h2></div>
+        </div>
+
+        <h2>Leave Requests (History)</h2>
+        <table border="1" cellpadding="8">
+          <thead>
+            <tr>
+              <th>Employee</th>
+              <th>Leave Type</th>
+              <th>From</th>
+              <th>To</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+<script>
+  // Tab switching logic
+  const tabs = document.querySelectorAll('.tab');
+  const contents = document.querySelectorAll('.tab-content');
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      contents.forEach(c => c.classList.remove('active'));
+
+      tab.classList.add('active');
+      document.getElementById(tab.dataset.tab).classList.add('active');
+    });
+  });
+
+  // Dynamically fill employee leave table from localStorage (assuming leaves saved as an array)
+  function populateEmployeeLeaves() {
+    const tableBody = document.querySelector('#employee-leave-table tbody');
+    tableBody.innerHTML = '';
+
+    // Example: leaves saved under 'leaves' in localStorage
+    let leaves = JSON.parse(localStorage.getItem('leaves')) || [];
+
+    if (leaves.length === 0) {
+      tableBody.innerHTML = '<tr><td colspan="6" style="text-align:center;">No leave requests found.</td></tr>';
+      return;
+    }
+
+    leaves.forEach(leave => {
+      const row = document.createElement('tr');
+
+      row.innerHTML = `
+        <td>${leave.type || ''}</td>
+        <td>${leave.from || ''}</td>
+        <td>${leave.to || ''}</td>
+        <td>${leave.reason || ''}</td>
+        <td>${leave.status || 'Pending'}</td>
+      `;
+
+      tableBody.appendChild(row);
+    });
+  }
+
+  populateEmployeeLeaves();
+
+  //manager side 
+  function updateManagerTab() {
+  const leaveRequests = JSON.parse(localStorage.getItem("leaves")) || [];
+  const tbody = document.querySelector("#manager table tbody");
+  const totalEl = document.querySelector(".green-light h2");
+  const pendingEl = document.querySelector(".green h2");
+  const approvedEl = document.querySelector(".green-dark h2");
+
+  // Reset content
+  tbody.innerHTML = "";
+  let total = 0, pending = 0, approved = 0;
+
+  leaveRequests.forEach(req => {
+    const row = document.createElement("tr");
+    row.innerHTML = `
+      <td>${req.name || "Unknown"}</td>
+      <td>${req.type}</td>
+      <td>${req.from}</td>
+      <td>${req.to}</td>
+      <td>${req.status || "Pending"}</td>
+    `;
+    tbody.appendChild(row);
+
+    // Update counters
+    total++;
+    if (req.status === "Approved") approved++;
+    else if (req.status === "Pending") pending++;
+  });
+
+  // Update stats
+  totalEl.textContent = total;
+  pendingEl.textContent = pending;
+  approvedEl.textContent = approved;
+}
+
+// Run on load
+document.addEventListener("DOMContentLoaded", updateManagerTab);
+
+</script>
+
+</body>
+</html>

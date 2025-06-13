@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Apply Leave - HRMS</title>
+  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<body class="dashboard-body">
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h2>HRMS</h2>
+    <a href="index.html"><i class="icon">🏠</i> Dash board</a>
+    <a href="applyLeave.html" class="active"><i class="icon">📝</i> Apply Leave</a>
+    <a href="approval.html"><i class="icon">🗂️</i> Manage Leaves</a>
+    <!-- <a href="#"><i class="icon">🕒</i> Leave History</a> -->
+    <a href="login.html"><i class="icon">↩️</i> Logout</a>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <h1>Apply for Leave</h1>
+    <form class="leave-form" onsubmit="submitLeave(event)">
+      <label for="employee-name">Employee Name</label>
+<input type="text" id="employee-name" required>
+
+      <label for="leave-type">Leave Type</label>
+      <select id="leave-type" required>
+        <option value="">--Select--</option>
+        <option value="Casual">Casual</option>
+        <option value="Medical">Medical</option>
+        <option value="Earned">Earned</option>
+      </select>
+
+      <label for="from-date">From</label>
+      <input type="date" id="from-date" required>
+
+      <label for="to-date">To</label>
+      <input type="date" id="to-date" required>
+
+      <label for="reason">Reason</label>
+      <textarea id="reason" rows="4" placeholder="Enter reason..." required></textarea>
+
+      <button type="submit">Submit</button>
+    </form>
+
+    <h2>Leave History</h2>
+<div id="leave-history" class="leave-history"></div>
+
+  </div>
+
+<script src="employee.js"></script>
+
+
+</body>
+</html>
+
