@@ -96,15 +96,21 @@ Login Page → Dashboard → Apply Leave → Manage Leaves → Logout
 
 ### Method 1: Using Deployed Link (Recommended for Demo)
 - Simply click on the deployed project link below to directly access the application:  
-**Project Live Demo:** *[link]*
+**Project Live Demo:** *[https://hrmsleave.netlify.app/login]*
 - The full functionality of the project can be explored directly through the web browser without any installation or setup.
 
 ### Method 2: Running Locally
-1. Download or clone the repository:
-•	git clone <your-repo-url>
+1. Download or clone the repository.
 2. Open the project folder.
 3. Double-click index.html to open it in any modern browser.
 4. No setup or installation is needed since it's a pure frontend project using localStorage.
+
+## Project Tour: Screenshots, Video Tutorial & Docs
+
+- [📸 Screenshots](https://drive.google.com/drive/folders/1nW9YxioGLRqwD73iMkZ4iZvaKqnP42L6?usp=drive_link)
+- [🎥 Video Demo](https://drive.google.com/file/d/1OARtiYdQ_BcGCKBbd1ArT9oYFea1dldA/view?usp=drive_link)
+- [📄 Documentation](https://drive.google.com/file/d/1MUEaShEZwG09kzweD1-FqSnS4iKyuVPz/view?usp=drive_link)
+
 
 ## Learning Outcomes
 - Learned to design a complete web-based application using HTML, CSS, and JavaScript.
