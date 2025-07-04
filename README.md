@@ -124,7 +124,7 @@ https://drive.google.com/file/d/1DZvaY8DpBb3B3UxBuraUtpX6P8-Uoa3I/view?usp=shari
 
 ## About VeriTech Software IT Services
 [VeriTech LinkedIn handle](https://www.linkedin.com/company/veritech-software-it-services-pvt-ltd/posts/?feedView=all)
-**Industry**: IT Services and IT Consulting
-**Employees**: 50   
-**Headquarters**: Pune, Maharashtra, India
+**Industry**: IT Services and IT Consulting  
+**Employees**: 50  
+**Headquarters**: Pune, Maharashtra, India  
 **Founded**: 2022
