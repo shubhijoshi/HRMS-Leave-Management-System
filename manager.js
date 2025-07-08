@@ -1,4 +1,3 @@
-
 function loadLeaveRequests() {
   const leaveRequests = JSON.parse(localStorage.getItem("leaves")) || [];
   const tbody = document.getElementById("leave-requests-body");

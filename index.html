@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +14,6 @@
       <a href="#" class="active"><i class="icon">🏠</i>Dash board</a>
       <a href="applyleave.html"><i class="icon">📝</i> Apply Leave</a>
       <a href="approval.html"><i class="icon">🗂️</i> Manage Leaves</a>
-      <!-- <a href="#"><i class="icon">🕒</i> Leave History</a> -->
       <a href="login.html"><i class="icon">↩️</i> Logout</a>
     </div>
 
@@ -88,7 +86,7 @@
   // Dynamically fill employee leave table from localStorage (assuming leaves saved as an array)
   function populateEmployeeLeaves() {
     const tableBody = document.querySelector('#employee-leave-table tbody');
-    tableBody.innerHTML = '';
+    tableBody.innerHTML = ''; 
 
     // Example: leaves saved under 'leaves' in localStorage
     let leaves = JSON.parse(localStorage.getItem('leaves')) || [];
